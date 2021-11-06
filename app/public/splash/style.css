@@ -1,0 +1,59 @@
+@font-face {
+    font-family:feather;
+    src: url('/app/src/Fonts/feather/feather-webfont.ttf')format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: montserrat;
+    src: url('/app/src/Fonts/Montserrat/Montserrat-Medium.ttf')format('truetype');
+    font-weight: normal;
+}
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: montserrat;
+    font-weight: 300;
+}
+.title{
+    text-align: center;
+    height: 50px;
+    width: 100%;
+   
+
+}
+.msg{
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+}
+.imagem{
+    width: 100%;
+}
+.div-img{
+    margin-top: -50px;
+}
+.div-img h2{
+position: relative;
+text-align: center;
+width: 100%;
+top: 60px;
+}
+button{
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 18px;
+    font-family: Montserrat;
+    border-radius: 15px;
+    border: 1px solid silver;
+    
+}
+footer{
+    background-color: silver;
+    padding: 5px;
+    text-align: center;
+}
+    .div-img-gif{
+        margin-top: 100px;
+    }

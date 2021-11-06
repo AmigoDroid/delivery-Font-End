@@ -1,0 +1,28 @@
+
+@font-face {
+    font-family: ft;
+    src: url('/src/Fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    text-align: center;
+    font-family: ft;
+}
+
+.card{
+   background: url('/src/img/bg_auth.jpg');
+    text-align: center;
+    border: 1px solid;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+button{
+    padding: 10px;
+    font-size: 18;
+    font-weight: 600;
+    font-family: ft;
+}
