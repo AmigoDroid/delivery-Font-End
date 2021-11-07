@@ -1,7 +1,7 @@
 const forme = document.getElementById('formulario-login');
 const adminUser = 'adminadmin'
 const adminPass = 'adminadmin'
-const UrlServer_DB = 'https://api-server-delivery.herokuapp.com/';
+const UrlServer_DB = 'http://api-server-delivery.herokuapp.com/';
 
 
 forme.addEventListener('submit', function (e) {
@@ -27,19 +27,19 @@ forme.addEventListener('submit', function (e) {
 
     const dataLogin = {
         telefone: tel,
-        senha: pass
+        password: pass
     };
 
     const retorno = post(UrlServer_DB + "loginUser", dataLogin);
-    const dados = JSON.parse(retorno);
-
-    let status = dados.status;
-    if (dados.status == true) {
-        //guardar o token e fazer o login 
-        alert("logado com sucesso! seu token: "+dados.token);
-        localStorage.setItem('token',dados.token);
-    } else {
-        alert('telefone ou senha incorretos')
-        console.log(dados.status);
-    }
-}
+    console.log(retorno);
+//     let status = dados.status;
+//     if (dados.status == true) {
+//         //guardar o token e fazer o login 
+//         alert("logado com sucesso! seu token: "+dados.token);
+//         localStorage.setItem('token',dados.token);
+//     } else {
+//         alert('telefone ou senha incorretos')
+//         console.log(dados.status);
+//     }
+// }
+ }
