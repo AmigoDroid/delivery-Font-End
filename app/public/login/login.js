@@ -38,43 +38,11 @@ forme.addEventListener('submit', function (e) {
     const dados = JSON.parse(retorno);
     let status = dados.status;
     if (dados.status == true) {
-        //guardar o token e fazer o login 
-        alert("logado com sucesso! seu token: "+dados.token);
         localStorage.setItem('token',dados.token);
+        location.replace('../home/index.html');
     } else {
-       
         alert('telefone ou senha incorretos')
         console.log(dados.status);
         
     }
- }
- function renderLogin(){
-document.getElementById('login-tela').innerHTML=` <h1>Login</h1>
-<form id="formulario-login">
-    <div class="div-input">
-        <input type="text" id="tel"  required>
-        <label>Telefone</label>
-    </div>
-    <div class="div-input">
-        <input type="text" id="pas"  required>
-        <label>Senha</label>
-    </div>
-    <button>Login</button>
-    <p>Não é cadastrado? <a href="#">Cadastrar</a> <br> Esqueceu a senha? <a href="#">Recuperar</a></p>
-</form>`
- }
- function renderload(){
-     document.getElementById('login-tela').innerHTML=` <h1>Login</h1>
-     <form id="formulario-login">
-         <div class="div-input">
-             <input type="text" id="tel"  required>
-             <label>Telefone</label>
-         </div>
-         <div class="div-input">
-             <input type="text" id="pas"  required>
-             <label>Senha</label>
-         </div>
-         <img id='imagem' src="../../src/img/loading.gif" alt="">
-         <p>Não é cadastrado? <a href="#">Cadastrar</a> <br> Esqueceu a senha? <a href="#">Recuperar</a></p>
-     </form>`
  }
