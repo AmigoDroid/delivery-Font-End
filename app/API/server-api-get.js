@@ -8,7 +8,7 @@ function get(url){
 function post(url,body){
     const api = new XMLHttpRequest();
     api.open('post',url,true);
-    api.setRequestHeader('Content/type','application/json');
+    api.setRequestHeader('Content-type','application/json');
     api.send(body);
     return api.responseText;
 }
