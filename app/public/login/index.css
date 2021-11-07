@@ -61,3 +61,21 @@ a{
     color: steelblue;
     font-weight: 600;
 }
+.loand{
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    visibility: hidden;
+    width: 50px;
+    height: 50px;
+    border: 6px solid #e5e5e5;
+    border-top: 6px solid springgreen;
+    border-radius: 50%;
+    animation: animar 1s infinite;
+}
+@keyframes animar {
+    to{
+        transform: rotate(1turn);
+    }
+    
+}
