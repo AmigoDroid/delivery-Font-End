@@ -25,21 +25,24 @@ forme.addEventListener('submit', function (e) {
 
  function login(tel, pass) {
 
-    const dataLogin = {
+    const body = {
         telefone: tel,
         password: pass
     };
 
-    const retorno = post(UrlServer_DB + "loginUser", dataLogin);
-    console.log(retorno);
-//     let status = dados.status;
-//     if (dados.status == true) {
-//         //guardar o token e fazer o login 
-//         alert("logado com sucesso! seu token: "+dados.token);
-//         localStorage.setItem('token',dados.token);
-//     } else {
-//         alert('telefone ou senha incorretos')
-//         console.log(dados.status);
-//     }
-// }
+    const retorno = postLogin(UrlServer_DB + "loginUser", body);
+  
+ }
+ function verificar(retorno){
+    console.log("retorno: "+retorno);
+    const dados = JSON.parse(retorno);
+    let status = dados.status;
+    if (dados.status == true) {
+        //guardar o token e fazer o login 
+        alert("logado com sucesso! seu token: "+dados.token);
+        localStorage.setItem('token',dados.token);
+    } else {
+        alert('telefone ou senha incorretos')
+        console.log(dados.status);
+    }
  }

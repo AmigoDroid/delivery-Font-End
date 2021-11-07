@@ -5,10 +5,21 @@ function get(url){
     api.send();
     return api.responseText;
 }
-function post(url,body){
+function postLogin(url,body){
     const api = new XMLHttpRequest();
-    api.open('post',url,true);
+    api.open('POST',url,true);
     api.setRequestHeader('Content-type','application/json');
-    api.send(body);
-    return api.responseText;
+    api.send(JSON.stringify(body));
+    api.onload=function (){
+        verificar(this.responseText);
+    }
+}
+function postCadastrar(url,body){
+    const api = new XMLHttpRequest();
+    api.open('POST',url,true);
+    api.setRequestHeader('Content-type','application/json');
+    api.send(JSON.stringify(body));
+    api.onload=function (){
+        verificar(this.responseText);
+    }
 }
