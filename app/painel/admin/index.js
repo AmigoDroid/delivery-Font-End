@@ -15,7 +15,7 @@ function RenderPessoas(dados){
     document.getElementById('tela').innerHTML+=`
      <div class="card">
     <h3>ID: ${dados.id} <br><strong>Nome:</strong> ${dados.nome} </h3>
-<img src="/src/img/user-avatar.png" alt="imagem">
+<img src="../../src/img/user-avatar.png" alt="imagem">
     <p>
   <strong>Rua:</strong> ${dados.rua} <br>
   <strong>Numero:</strong> ${dados.numero} <br>
