@@ -1,8 +1,9 @@
 const forme = document.getElementById('formulario-cadastro');
-forme.addEventListener('submit', (e) => {
-e.preventDefault();
+forme.addEventListener('submit',function(e){
 
-    const url = "https://api-server-delivery.herokuapp.com/";
+e.preventDefault();
+console.log('submit');
+
 
     const nome = document.getElementById('nome').value;
     const rua = document.getElementById('rua').value;
@@ -11,20 +12,40 @@ e.preventDefault();
     const telefone = document.getElementById('telefone').value;
     const senha = document.getElementById('senha').value;
 
-    if(nome.length>0 && rua.length>0 && numero.legth>0 && complemento.legth>0 && telefone.legth>0 && senha.legth>0){
-        //
         const usuario = {
             nome:nome,
             rua:rua,
             numero:numero,
-            complemento:complemento,
+            referencia:complemento,
             telefone:telefone,
-            senha:senha
+            password:senha
         }
-        postCadastro(url+'cadastrarUser',usuario)
-    }
+        console.log(usuario);
+    Cadastro(url,usuario);
+    
 })
+const url = "https://api-server-delivery.herokuapp.com/cadastrar/Usuario";
 
- 
+
+function respostaC(res){
+    console.log(res);
+    const db = JSON.parse(res);
+    console.log(db);
+    if(db.status==true){
+        alert('usuario cadastrado, faça login');
+        location.replace('../login/index.html');
+    }else{
+        alert('ocorreu um erro inesperado');
+    }
+}
+function Cadastro(url,body){
+    const api = new XMLHttpRequest();
+    api.open('POST',url,true);
+    api.setRequestHeader('Content-type','application/json');
+    api.send(JSON.stringify(body));
+    api.onload = function (){
+        respostaC(this.responseText);
+    }
+}
 
 

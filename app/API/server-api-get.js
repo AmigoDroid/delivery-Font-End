@@ -14,12 +14,3 @@ function postLogin(url,body){
         verificar(this.responseText);
     }
 }
-function postCadastrar(url,body){
-    const api = new XMLHttpRequest();
-    api.open('POST',url,true);
-    api.setRequestHeader('Content-type','application/json');
-    api.send(JSON.stringify(body));
-    api.onload=function (){
-        verificar(this.responseText);
-    }
-}
