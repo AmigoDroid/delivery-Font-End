@@ -12,7 +12,7 @@ forme.addEventListener('submit', function (e) {
     if (username.length <= 0 || password.length <= 0) {
         console.log('vazio');
     } else if (username == adminUser && password == adminPass) {
-        location.replace('app/public/painel/loginAdmin/login.html');
+        location.replace('../../painel/loginAdmin/login.html');
 
     } else {
         login(username, password);

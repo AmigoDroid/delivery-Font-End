@@ -25,4 +25,8 @@ button{
     font-size: 18;
     font-weight: 600;
     font-family: ft;
+    margin: 5px;
+}
+.seting{
+    border-bottom: 1px solid;
 }

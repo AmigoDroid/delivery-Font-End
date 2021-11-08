@@ -27,12 +27,13 @@ console.log('submit');
 const url = "https://api-server-delivery.herokuapp.com/cadastrar/Usuario";
 
 
-function respostaC(res){
+function respostaC(res,use){
+    alert('respsta '+res)
     console.log(res);
     const db = JSON.parse(res);
     console.log(db);
     if(db.status==true){
-        alert('usuario cadastrado, faça login');
+        alert(use + ' cadastrado, faça login');
         location.replace('../login/index.html');
     }else{
         alert('ocorreu um erro inesperado');
@@ -44,7 +45,7 @@ function Cadastro(url,body){
     api.setRequestHeader('Content-type','application/json');
     api.send(JSON.stringify(body));
     api.onload = function (){
-        respostaC(this.responseText);
+        respostaC(this.responseText,body.nome);
     }
 }
 

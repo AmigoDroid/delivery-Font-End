@@ -9,7 +9,7 @@ const password = document.getElementById('pass').value;
 if(username.length <=0 || password.length <=0){
     console.log('vazio');
 }else{
-    console.log('fazer login');
+    location.replace('../admin/index.html');
 }
 
 
