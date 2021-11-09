@@ -28,7 +28,7 @@ function RenderPessoas(dados){
 </div> `
 }
 function pessoa(){
-const cliente ={
+const cliente = {
     id:0,
     nome:'Luciano',
     rua:'senador sarney',

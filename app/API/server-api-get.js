@@ -14,3 +14,12 @@ function postLogin(url,body){
         verificar(this.responseText);
     }
 }
+function postLoginAdmin(url,body){
+    const api = new XMLHttpRequest();
+    api.open('post',url,true);
+    api.setRequestHeader('Content-type','application-json');
+    api.send(JSON.stringify(body));
+    api.onload = function(){
+        respostaLoginAdmin(this.responseText);
+    }
+}
