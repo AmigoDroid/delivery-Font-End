@@ -10,11 +10,11 @@ if(username.length <=0 || password.length <=0){
     console.log('vazio');
 }else{
     const body ={
-        username:username,
-        password:password
+        user:username,
+        pass:password
     }
     const url='https://api-server-delivery.herokuapp.com/login/admin';
-   postLoginAdmin(url,body)
+   postLoginAdmin(url,body);
 }
 
 
