@@ -1,6 +1,6 @@
 function login(){
-    location.replace('../login/index.html');
+    location.assign('../login/index.html');
 }
 function cadastrar(){
-    location.replace('../cadastro/cadastrar.html');
+    location.assign('../cadastro/cadastrar.html');
 }
