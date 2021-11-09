@@ -1,3 +1,5 @@
+const url='https://api-server-delivery.herokuapp.com/lista/';
+
 function get(url){
     const api = new XMLHttpRequest();
     api.open("get",url,false);
@@ -21,5 +23,25 @@ function postLoginAdmin(url,body){
     api.send(JSON.stringify(body));
     api.onload = function(){
         respostaLoginAdmin(this.responseText);
+    }
+}
+function postListaStores(local,l){
+    const body = {
+        tokenAdmin:localStorage.getItem('tokenAdmin')
+    }
+    const api = new XMLHttpRequest();
+    api.open("POST",url+local,true);
+    api.setRequestHeader('Content-type','application/json');
+    api.send(JSON.stringify(body));
+    api.onload = function(){
+        document.getElementById('tela').innerHTML='';
+
+        if(l==1){
+             renderizarLojas(this.responseText);
+
+        }else if(l==2){
+            renderizarPessoas(this.responseText);
+        }
+       
     }
 }

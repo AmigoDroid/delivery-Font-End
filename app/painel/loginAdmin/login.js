@@ -9,18 +9,21 @@ const password = document.getElementById('pass').value;
 if(username.length <=0 || password.length <=0){
     console.log('vazio');
 }else{
-    const body ={
+    const body = {
         user:username,
         pass:password
     }
-    const url='https://api-server-delivery.herokuapp.com/login/admin';
-   postLoginAdmin(url,body);
-}
 
+    const url='https://api-server-delivery.herokuapp.com/login/admin';
+    
+console.log('logando...');
+  const tf =  postLoginAdmin(url,body);
+}
 
 
 })
 function respostaLoginAdmin(resposta){
+    console.log('resposta: '+ resposta);
     const dados = JSON.parse(resposta);
     const status = dados.status;
     if(status==true){

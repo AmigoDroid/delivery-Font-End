@@ -1,19 +1,31 @@
 
-
+ //RENDERIZAR AS LOJAS
 function RenderLojas(dados){
     document.getElementById('tela').innerHTML+=
     `
-    <div class="card">
+    <div class="card"style="background: url('../../src/img/bg_auth.jpg');
+    text-align: center;
+    border: 1px solid;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 10px;">
                 <h3>${dados.nome} <br> ID: ${dados.id}</h3>
-            <img src="/src/img/user-avatar.png" alt="imagem">
+            <img src="../../src/img/user-avatar.png" alt="imagem">
                 <p>${dados.descrision}</p>
                 <button onclick='apagar(${dados.id})'>Apagar</button>
            </div> 
     `
 }
+// RENDERIZAR AS PESSOAS
 function RenderPessoas(dados){
-    document.getElementById('tela').innerHTML+=`
-     <div class="card">
+    const info = dados;
+   const tela = document.getElementById('tela').innerHTML+=`
+     <div class="card" style="background: url('../../src/img/bg_auth.jpg');
+     text-align: center;
+     border: 1px solid;
+     margin: 20px;
+     border-radius: 10px;
+     padding: 10px;">
     <h3>ID: ${dados.id} <br><strong>Nome:</strong> ${dados.nome} </h3>
 <img src="../../src/img/user-avatar.png" alt="imagem">
     <p>
@@ -24,36 +36,65 @@ function RenderPessoas(dados){
   <strong>Senha:</strong> ${dados.password}</p>
 
     <button onclick='apagar(${dados.id})'>Apagar</button>
-    <button onclick='atualizarCadastro(${dados})'>Atualizar</button>
+    <button onclick='atualizarCadastro(${dados.id})'>Atualizar</button>
 </div> `
-}
-function pessoa(){
-const cliente = {
-    id:0,
-    nome:'Luciano',
-    rua:'senador sarney',
-    numero:'405',
-    referencia:'ao lado da esmeralda',
-    telefone:'99984645196',
-    password:'54'
-}
-return cliente;
+
 }
 
-function render(){
-    let  i =0;
-    let vezes = 5;
-    for(i;i<vezes;i++){
-        RenderPessoas(pessoa());
-    }
+
+//BOTÃO DE LOJAS
+function lojas(){
+const df = postListaStores('stores',1)
 }
+//BOTÃO DE PESSOAS
+function pessoas(){
+    let dg = postListaStores('users',2)
+}
+
+
+// PEGAR CADA ITEM E MANDAR RENDERIZAR AS LOJAS 
+function renderizarLojas(resposta){
+    const dados = JSON.parse(resposta);
+    let i =0;
+    if(dados.status===true){
+    let j = dados.body.length;
+    for(i;i<j;i++){
+        RenderLojas(dados.body[i]);
+    }
+  console.log(dados);
+
+}else{
+   notautorized();
+}
+
+}
+
+// PEGAR CADA ITEM E MANDAR RENDERIZAR AS PESSOAS
+function renderizarPessoas(resposta){
+    const dados = JSON.parse(resposta);
+    let i =0;
+    if(dados.status==true){
+    let j = dados.body.length;
+    for(i;i<j;i++){
+        RenderPessoas(dados.body[i]);
+    }
+  console.log(dados);
+
+}else{
+    notautorized();
+}}
+
 function apagar(id){
     alert(id)
-
 }
 function atualizarCadastro(body){
-alert('poi');
+alert(body);
 }
 window.onload=()=>{
-    render();
+    lojas();
+}
+//NÃO AUTENTICADO/AUTORIZADO
+function notautorized(){
+    alert('seu login expirou, faça login novamente!')
+    location.replace('../loginAdmin/login.html');
 }
