@@ -14,7 +14,7 @@ function postLogin(url,body){
     api.send(JSON.stringify(body));
     api.onload=function (){
         verificar(this.responseText);
-    }
+    } 
 }
 function postLoginAdmin(url,body){
     const api = new XMLHttpRequest();

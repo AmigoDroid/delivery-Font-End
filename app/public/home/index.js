@@ -1,5 +1,5 @@
-const url ="https://api-server-delivery.herokuapp.com/home/cliente/";
-const token = localStorage.getItem('token');
+const urll ="https://api-server-delivery.herokuapp.com/home/cliente/";
+const token = ""+ localStorage.getItem('token');
 
 window.onload = ()=>{
     altenticar();
@@ -13,9 +13,9 @@ function RenderCard(dados){
      <img src="../../src/img/user-avatar.png" alt="imagem">
          <p>${dados.descrision}</p>
     </div> `;
-}
+} 
 function altenticar(){
-    const resposta = get(url+token);
+    const resposta = get(urll+token);
     const dados = JSON.parse(resposta);
     if(dados.status==true){
         const bodydb = dados.body;
