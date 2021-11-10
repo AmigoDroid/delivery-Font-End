@@ -12,7 +12,7 @@ function RenderLojas(dados){
                 <h3>${dados.nome} <br> ID: ${dados.id}</h3>
             <img src="../../src/img/user-avatar.png" alt="imagem">
                 <p>${dados.descrision}</p>
-                <button onclick='apagar(${dados.id})'>Apagar</button>
+                <button onclick='apagarLoja(${dados.id})'>Apagar</button>
            </div> 
     `
 }
@@ -35,7 +35,7 @@ function RenderPessoas(dados){
   <strong>Telefone:</strong>  ${dados.telefone} <br>
   <strong>Senha:</strong> ${dados.password}</p>
 
-    <button onclick='apagar(${dados.id})'>Apagar</button>
+    <button onclick='apagarUser(${dados.id})'>Apagar</button>
     <button onclick='atualizarCadastro(${dados.id})'>Atualizar</button>
 </div> `
 
@@ -84,8 +84,11 @@ function renderizarPessoas(resposta){
     notautorized();
 }}
 
-function apagar(id){
-    alert(id)
+function apagarLoja(id){
+    del('loja',id)
+}
+function apagarUser(id){
+    del('pessoa',id)
 }
 function atualizarCadastro(body){
 alert(body);
@@ -97,4 +100,20 @@ window.onload=()=>{
 function notautorized(){
     alert('seu login expirou, faça login novamente!')
     location.replace('../loginAdmin/login.html');
+}
+function RESdelete(res,local){
+const dados = JSON.parse(res);
+console.log(dados);
+const {status} = dados;
+if(status==true){
+    //apagado
+    if(local=='loja'){
+        lojas();
+    }else{
+        pessoas();
+    }
+}
+}
+function cadastrarLoja(){
+    location.assign('../cadastro/cadastrar.html');
 }
