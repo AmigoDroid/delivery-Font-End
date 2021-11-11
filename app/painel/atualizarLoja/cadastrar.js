@@ -48,5 +48,8 @@ function Cadastro(body){
         respostaC(this.responseText,body.nome);
     }
 }
+function dados(){
+
+}
 
 
