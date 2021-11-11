@@ -1,5 +1,6 @@
 const url='https://api-server-delivery.herokuapp.com/lista/';
 const urlDEL='https://api-server-delivery.herokuapp.com/apagar/';
+const urlAT='https://api-server-delivery.herokuapp.com/editar/';
 
 
 function get(url){
@@ -56,3 +57,13 @@ function del(local,id){
     api.onload = function(){
         RESdelete(this.responseText,local);
 }}
+function editar(local,id){
+    const body ={id:id, tokenAdmin:localStorage.getItem('tokenAdmin')}
+    const api = new XMLHttpRequest();
+    api.open("POST",urlAT+local,true);
+    api.setRequestHeader('Content-type','application/json');
+    api.send(JSON.stringify(body));
+    api.onload = function(){
+        RESdelete(this.responseText,local);
+}
+}
