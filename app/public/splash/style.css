@@ -1,11 +1,11 @@
 @font-face {
     font-family:feather;
-    src: url('/app/src/Fonts/feather/feather-webfont.ttf')format('truetype');
+    src: url('../../src/Fonts/feather/feather-webfont.ttf')format('truetype');
     font-weight: normal;
 }
 @font-face {
     font-family: montserrat;
-    src: url('/app/src/Fonts/Montserrat/Montserrat-Medium.ttf')format('truetype');
+    src: url('../../src/Fonts/Montserrat/Montserrat-Medium.ttf')format('truetype');
     font-weight: normal;
 }
 body{
@@ -47,6 +47,7 @@ button{
     font-family: Montserrat;
     border-radius: 15px;
     border: 1px solid silver;
+    transition: .3s;
     
 }
 footer{
@@ -57,3 +58,28 @@ footer{
     .div-img-gif{
         margin-top: 100px;
     }
+.div-h2-login{
+    font-size: 700em;
+}
+#img-logo{
+    position:absolute;
+    width: 20%;
+    top: 2px;
+    right: 5px;
+}
+.div-login{
+    background-color: bisque;
+    padding: 15px;
+}
+.div-login h2{
+    padding-top: 15px;
+    font-size: 2em;
+}
+.div-login button{
+   animation: 1s;
+}
+.div-login button:hover{
+    border: 1px solid #000;
+    
+    box-shadow: 1px 1px 20px rgb(103, 252, 232);
+}
