@@ -13,7 +13,7 @@ function RenderLojas(dados){
             <img src="../../src/img/user-avatar.png" alt="imagem">
                 <p>${dados.descrision}</p>
                 <button onclick='apagarLoja(${dados.id})'>Apagar</button>
-                <button onclick='EditarLoja()'>Editar</button>
+                <button onclick='EditarLoja(${dados.id})'>Editar</button>
            </div> 
     `
 }
@@ -117,7 +117,8 @@ if(status==true){
 function cadastrarLoja(){
     location.assign('../cadastro/cadastrar.html');
 }
-function EditarLoja(id,nome,descrision,telefone,itens,username,password){
-    console.log(id);
+function EditarLoja(id){
+    localStorage.setItem('id',id);
+    location.assign('../atualizarLoja/atualizarLoja.html');
     
 }

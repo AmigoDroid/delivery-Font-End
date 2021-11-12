@@ -5,7 +5,7 @@ const urlAT='https://api-server-delivery.herokuapp.com/editar/';
 
 function get(url){
     const api = new XMLHttpRequest();
-    api.open("get",url,false);
+    api.open("GET",url,false);
     api.setRequestHeader('Content-type','application/json');
     api.send();
     return api.responseText; 
@@ -60,7 +60,7 @@ function del(local,id){
 function editar(local,id){
     const body ={id:id, tokenAdmin:localStorage.getItem('tokenAdmin')}
     const api = new XMLHttpRequest();
-    api.open("POST",urlAT+local,true);
+    api.open("POST",urlAT+local,true);lo
     api.setRequestHeader('Content-type','application/json');
     api.send(JSON.stringify(body));
     api.onload = function(){
