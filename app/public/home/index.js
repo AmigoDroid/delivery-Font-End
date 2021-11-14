@@ -17,7 +17,7 @@ function RenderCard(dados){
 
 
 function abrir(id){
-    location.assign('https://pedidos-delivery.herokuapp.com/home/'+id);
+    location.assign('https://pedidos-delivery.herokuapp.com/cliente/'+id);
 }
 
 function altenticar(){
