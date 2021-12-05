@@ -18,7 +18,7 @@ function RenderCard(dados){
 
 function abrir(id){
     localStorage.setItem('idLoja',id);
-    location.assign('https://pedidos-delivery.herokuapp.com/cliente/'+id);
+    location.assign('https://pedidos-delivery.herokuapp.com');
 }
 
 function altenticar(){
