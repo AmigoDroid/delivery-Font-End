@@ -22,3 +22,10 @@ body{
     margin: 20px;
     border-radius: 10px;
 }
+button{
+    padding: 10px;
+    font-size: 18;
+    font-weight: 600;
+    font-family: ft;
+    margin: 5px;
+}

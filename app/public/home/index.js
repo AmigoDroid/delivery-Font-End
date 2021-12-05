@@ -8,17 +8,21 @@ window.onload = ()=>{
 
 function RenderCard(dados){
      document.getElementById('tela').innerHTML+=`
-     <div class="card" onclick='abrir(${dados.id})'>
+     <div class="card">
          <h3>${dados.nome}</h3>
      <img src="../../src/img/user-avatar.png" alt="imagem">
-         <p>${dados.descrision}</p>
+         <p>${dados.descrision} <br><br>
+         Telefone: ${dados.telefone}</p>   
+        <!-- <button onclick='abrir(${dados.id})'>Fazer Pedido!</button>-->
     </div> `;
 } 
 
 
 function abrir(id){
-    localStorage.setItem('idLoja',id);
-    location.assign('https://pedidos-delivery.herokuapp.com');
+    // localStorage.setItem('idLoja',id);
+    // location.assign('https://pedidos-delivery.herokuapp.com');
+   // location.assign('../pedidos/index.html');
+   alert('essa função está em desenvolvimento')
 }
 
 function altenticar(){
