@@ -18,13 +18,15 @@ body{
 }
 .title{
     text-align: center;
-    height: 55px;
+    height: 60px;
     width: 100%;
+    padding: 2px;
    
 
 }
 .msg{
     text-align: center;
+    margin-top: 4px;
     padding: 10px;
     font-weight: 600;
 }
@@ -32,7 +34,7 @@ body{
     width: 100%;
 }
 .div-img{
-    margin-top: -50px;
+    margin-top: -45px;
 }
 .div-img h2{
 position: relative;
