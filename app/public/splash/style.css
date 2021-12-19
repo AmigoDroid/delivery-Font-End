@@ -118,8 +118,34 @@ body{
 
 
 
+@media screen and (max-width:405px){
+    .title .text{
+        font-size: 13px;
+    }
+    .title button{
+        font-size: 14px;
+       
 
-
+    }
+    .card{
+        width: 100%;
+    }
+}
+@media screen and (max-width:345px){
+    .title .text{
+        font-size: 13px;
+    }
+    .title button{
+        font-size: 14px;
+        margin: 5px 0 0 0;
+    }
+    .title #loginCadastrar{
+        flex-direction: column;
+    }
+    .card{
+        width: 100%;
+    }
+}
 
 
 @keyframes animTitle{
