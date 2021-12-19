@@ -4,88 +4,132 @@
     font-weight: normal;
 }
 @font-face {
-    font-family: montserrat;
+    font-family: padrao;
     src: url('../../src/Fonts/Montserrat/Montserrat-Medium.ttf')format('truetype');
     font-weight: normal;
 }
 body{
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
-    font-family: montserrat;
-    font-weight: 300;
+    font-family: padrao;
+    
 }
 .title{
-    text-align: center;
-    height: 60px;
+    height: 100px;
     width: 100%;
-    font-size: 14px;
-    padding: 2px;
-   
+    align-items: center;
+    background:linear-gradient(45deg, #05C5F0,#0AF7F5,#02E0B0,#0AF793,
+    #05F05C);
+    background-size: 300%;
+    animation: animTitle 15s infinite ease-in-out;
+}
+.title #loginCadastrar{
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-right: 2%;
+}
+.title .text{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%;
+    float: left;
+}
+.title button{
+    font-size: 16px;
+    font-weight:600;
+    padding: 9px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: 5px 5px 15px rgba(80, 80, 80, 0.425);
+    margin-left: 5px;
+}
+.textmsg{
+    width: 100%;
+    text-align: center;
+}
+#conteudo{
+    height: 100vh;
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
 
 }
-.msg{
-    text-align: center;
-    margin-top: 4px;
-    padding: 10px;
-    font-weight: 600;
+.card{
+    background: #05F05C;
+    min-height: 280px;
+    max-height: 350px;
+    height:auto;
+    width: 250px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 3px;
+    margin-bottom: 20px;
 }
-.imagem{
+.card .img{
     width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.div-img{
-    margin-top: -45px;
+.card .img img{
+    border-radius: 50%;
+    height: 100%;
 }
-.div-img h2{
-position: relative;
-text-align: center;
-width: 100%;
-top: 60px;
+.card .titleCard{
+    max-height: 100px;
+    min-height: 80px;
+    height: auto;
+    text-align: center;
 }
-button{
-    padding: 10px;
+.card .descrision{
+    width: 100%;
+    text-align: center;
+}
+.card .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    background-color: #0AF793;
+    border-radius:10px;
+    color: black;
+}
+.card .button p{
     margin-left: 10px;
-    font-size: 18px;
-    font-family: Montserrat;
-    border-radius: 15px;
-    border: 1px solid silver;
-    transition: .3s;
-    
+    pointer-events: none;
 }
-footer{
-    background-color: silver;
-    padding: 5px;
-    text-align: center;
-}
-    .div-img-gif{
-        margin-top: 100px;
+
+
+
+
+
+
+
+@keyframes animTitle{
+    0%{
+        background-position: 0% 50%;
     }
-.div-h2-login{
-    font-size: 700em;
-}
-#img-logo{
-    position:absolute;
-    width: 20%;
-    top: 2px;
-    right: 5px;
-}
-.div-login{
-    background-color: bisque;
-    padding: 15px;
-}
-.div-login h2{
-    padding-top: 15px;
-    font-size: 2em;
-}
-.div-login button{
-   animation: 1s;
-}
-.div-login button:hover{
-    border: 1px solid #000;
-    
-    box-shadow: 1px 1px 20px rgb(103, 252, 232);
-}
-#img-moto{
-    width: 100%;
-}
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+} 
