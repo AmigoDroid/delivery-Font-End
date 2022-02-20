@@ -12,7 +12,7 @@
     <button onclick="ok()">teste</button>
 
     <script>
-        const socket = io('https://pedidos-delivery.herokuapp.com');
+        const socket = io('https://pedidos-delivery.herokuapp.com:8787');
     
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
