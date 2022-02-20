@@ -78,7 +78,7 @@ window.onload =  function(){
     mensagem();
     const url="https://api-server-delivery.herokuapp.com/home/cliente/";
     const token=localStorage.getItem('token');
-  //  const logar = get(url+token);
+    const logar = get(url+token);
     const dados = JSON.parse(logar);
     if(dados.status){ 
         console.log(dados.status);

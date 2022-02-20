@@ -3,7 +3,9 @@ const token = ""+ localStorage.getItem('token');
 
 window.onload = ()=>{
     altenticar();
+  
 }
+
 
 
 function RenderCard(dados){
@@ -13,22 +15,24 @@ function RenderCard(dados){
      <img src="../../src/img/user-avatar.png" alt="imagem">
          <p>${dados.descrision} <br><br>
          Telefone: ${dados.telefone}</p>   
-        <!-- <button onclick='abrir(${dados.id})'>Fazer Pedido!</button>-->
+         <button onclick='abrir(${dados.id})'>Fazer Pedido!</button>
     </div> `;
 } 
 
 
 function abrir(id){
-    // localStorage.setItem('idLoja',id);
-    // location.assign('https://pedidos-delivery.herokuapp.com');
-   // location.assign('../pedidos/index.html');
-   alert('essa função está em desenvolvimento')
+     localStorage.setItem('idLoja',id);
+     location.assign('../pedidos/index.html');
+
+     //alert('essa função está em desenvolvimento');
 }
 
 function altenticar(){
+    console.log('altenticando...');
     const resposta = get(urll+token);
     const dados = JSON.parse(resposta);
     if(dados.status==true){
+        console.log('Renderizando...');
         const bodydb = dados.body;
         for(let i =0;i<bodydb.length;i++){
             RenderCard(bodydb[i]);
