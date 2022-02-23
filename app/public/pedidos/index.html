@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../home/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    <script src="../../API/server-api-get.js"></script>
     <title>Pedido</title>
 </head>
 <body>
     <button onclick="ok()">teste</button>
 
     <script>
-        const socket = io('https://pedidos-delivery.herokuapp.com');
-    
+         const api ='https://pedidos-delivery.herokuapp.com';
+         const local = 'http://localhost:5500';
+        //  const url_token = 'https://api-server-delivery.herokuapp.com/validar/';
+         const token = localStorage.getItem('token');
+         const idLoja = localStorage.getItem('idLoja');
+        
+        const socket = io(api);
+
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
     
@@ -27,12 +34,16 @@
     
 
             function ok (){
-                console.log('ok');
+
                 const dadosPedido ={
-                    id:'klsdmsklnskg',
-                    nome:'sei la',
-                    preco:'200',
-                    quantidade:'1'
+                    idPedido:'klsdmsklnskg',
+                    nome:'Pizza de Frango',
+                    rua:'senador sarney',
+                    numero:'405',
+                    preco:'50',
+                    quantidade:'3',
+                    token:token,
+                    idLoja:idLoja
                 }
                 socket.emit('pedidos',dadosPedido);
 }
