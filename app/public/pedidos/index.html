@@ -10,17 +10,16 @@
     <title>Pedido</title>
 </head>
 <body>
-    <button onclick="ok()">teste</button>
+    <button onclick="fazerPedido()">teste</button>
 
     <script>
          const api ='https://pedidos-delivery.herokuapp.com';
          const local = 'http://localhost:5500';
         //  const url_token = 'https://api-server-delivery.herokuapp.com/validar/';
-         const token = localStorage.getItem('token');
+         const token = localStorage.getItem('token')+'';
          const idLoja = localStorage.getItem('idLoja');
-        
+        //escolhendo servidor
         const socket = io(api);
-
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
     
@@ -31,10 +30,11 @@
         socket.on('teste',(msg)=>{
                 console.log(msg);
             })
-    
 
-            function ok (){
+          
 
+            function fazerPedido(){
+                console.log('fazendo pedido...');
                 const dadosPedido ={
                     idPedido:'klsdmsklnskg',
                     nome:'Pizza de Frango',
@@ -46,7 +46,23 @@
                     idLoja:idLoja
                 }
                 socket.emit('pedidos',dadosPedido);
+                //ouvindo via token
+                socket.on(token,(res)=>{
+
+                  const {estado,msgV,msgF} = res;
+                 
+                  if(estado){
+                      alert(msgV);
+                  }else{
+                     
+                      alert(msgF);
+                  }
+
+                });
 }
+            function alerta(msg){
+              
+            }
         </script>
 </body>
 </html>
