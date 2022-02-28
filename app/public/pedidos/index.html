@@ -16,10 +16,10 @@
          const api ='https://pedidos-delivery.herokuapp.com';
          const local = 'http://localhost:5500';
         //  const url_token = 'https://api-server-delivery.herokuapp.com/validar/';
-         const token = localStorage.getItem('token')+'';
+         const token = localStorage.getItem('token');
          const idLoja = localStorage.getItem('idLoja');
         //escolhendo servidor
-        const socket = io(local);
+        const socket = io(api);
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
     
