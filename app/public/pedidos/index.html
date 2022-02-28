@@ -19,7 +19,7 @@
          const token = localStorage.getItem('token')+'';
          const idLoja = localStorage.getItem('idLoja');
         //escolhendo servidor
-        const socket = io(api);
+        const socket = io(local);
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
     
