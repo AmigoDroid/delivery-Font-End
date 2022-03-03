@@ -24,7 +24,7 @@
             <div class="div-input">
                 <input type="text" id="pas"  required>
                <label>Senha</label>
-            </div> <button onclick="login()">Login</button>
+            </div> <button>Login</button>
             <p>Não é cadastrado? <a href="../cadastro/cadastrar.html">Cadastrar</a> <br> Esqueceu a senha? <a href="#">Recuperar</a></p>
         </form>
             <div class="loand" id="load"></div>
@@ -98,7 +98,7 @@ forme.addEventListener('submit', function (e) {
         location.replace('../home/index.html');
     
     } else {
-       // alert('telefone ou senha incorretos')
+        alert('telefone ou senha incorretos')
         console.log(dados.status);
         
     }
