@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <!-- SOCKET.IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
     <script src="login.js" defer></script>
     <script src="../../API/server-api-get.js"></script>
 
@@ -22,13 +24,85 @@
             <div class="div-input">
                 <input type="text" id="pas"  required>
                <label>Senha</label>
-            </div> <button>Login</button>
+            </div> <button onclick="login()">Login</button>
             <p>Não é cadastrado? <a href="../cadastro/cadastrar.html">Cadastrar</a> <br> Esqueceu a senha? <a href="#">Recuperar</a></p>
         </form>
             <div class="loand" id="load"></div>
 
 
     </div>
+    <script>
+        const api ='https://pedidos-delivery.herokuapp.com';
+        const local ='http://localhost:5500';
+        const socket = io(api);
+
+        socket.emit('logar','login');
+
+        socket.on('teste',(msg)=>{
+            console.log(msg);
+        })
+        socket.on('response',obj=>{
+           verificar(obj);
+        })
+        function loginSocket(obj){
+            console.log('login...');
+            
+            socket.emit('login',obj);
+        }
+
+
+const forme = document.getElementById('formulario-login');
+const adminUser = 'adminadmin'
+const adminPass = 'adminadmin'
+const laod = document.getElementById('load');
+
+forme.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById('tel').value;
+    const password = document.getElementById('pas').value;
+
+    if (username.length <= 0 || password.length <= 0) {
+        console.log('vazio');
+    } else if (username == adminUser && password == adminPass) {
+        location.replace('../../painel/loginAdmin/login.html');
+
+    } else {
+        login(username, password);
+      //  laod.style.visibility='visible'
+    }
+
+});
+//fazer o login
+
+ function login(tel, pass) {
     
+    const body = {
+        telefone: tel,
+        password: pass
+    };
+    loginSocket(body);
+   // const retorno = postLogin(UrlServer_DB + "loginUser", body);
+  
+ }
+ function verificar(retorno){
+
+    const dados = JSON.parse(retorno);
+
+    let status = dados.status;
+    
+    if (dados.status == true) {
+    
+        localStorage.setItem('token',dados.token);
+        location.replace('../home/index.html');
+    
+    } else {
+        alert('telefone ou senha incorretos')
+        console.log(dados.status);
+        
+    }
+ }
+
+    </script>
 </body>
 </html>
