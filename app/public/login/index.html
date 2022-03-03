@@ -42,7 +42,8 @@
             console.log(msg);
         })
         socket.on('response',obj=>{
-           verificar(obj);
+            const sd = obj;
+           verificar(sd);
         })
         function loginSocket(obj){
             console.log('login...');
@@ -78,8 +79,8 @@ forme.addEventListener('submit', function (e) {
  function login(tel, pass) {
     
     const body = {
-        telefone: tel,
-        password: pass
+        telefone:''+ tel,
+        password: ''+ pass
     };
     loginSocket(body);
    // const retorno = postLogin(UrlServer_DB + "loginUser", body);
@@ -87,8 +88,8 @@ forme.addEventListener('submit', function (e) {
  }
  function verificar(retorno){
 
-    const dados = JSON.parse(retorno);
-
+    const dados = retorno;
+    console.log(dados);
     let status = dados.status;
     
     if (dados.status == true) {
@@ -97,7 +98,7 @@ forme.addEventListener('submit', function (e) {
         location.replace('../home/index.html');
     
     } else {
-        alert('telefone ou senha incorretos')
+       // alert('telefone ou senha incorretos')
         console.log(dados.status);
         
     }
