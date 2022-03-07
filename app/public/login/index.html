@@ -36,18 +36,12 @@
         const local ='http://localhost:5500';
         const socket = io(api);
 
-        socket.emit('logar','login');
-
-        socket.on('teste',(msg)=>{
-            console.log(msg);
-        })
-        socket.on('response',obj=>{
+        socket.on('resLogin',obj=>{
             const sd = obj;
            verificar(sd);
         })
         function loginSocket(obj){
             console.log('login...');
-            
             socket.emit('login',obj);
         }
 
