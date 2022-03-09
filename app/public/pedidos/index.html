@@ -23,17 +23,7 @@
         const socket = io(api);
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
-    
-            sk.on('event',(item)=>{
-                console.log(item);
-            })
-        })
-        socket.emit('logar','fazendo Pedido');
-        socket.on('teste',(msg)=>{
-                console.log(msg);
-            })
-
-          
+        });      
 
             function fazerPedido(){
                 console.log('fazendo pedido...');
@@ -50,7 +40,7 @@
                 }
                 socket.emit('Pedir',dadosPedido);
                 //ouvindo via token
-                socket.on(token,(res)=>{
+                socket.on('Res_Pedir',(res)=>{
 
                   const {estado,msgV,msgF} = res;
                  
