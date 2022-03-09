@@ -15,13 +15,14 @@ function RenderCard(dados){
      <img src="../../src/img/user-avatar.png" alt="imagem">
          <p>${dados.descrision} <br><br>
          Telefone: ${dados.telefone}</p>   
-         <button onclick='abrir(${dados.id})'>Fazer Pedido!</button>
+         <button onclick='abrir(${dados.id},${dados.nome})'>Fazer Pedido!</button>
     </div> `;
 } 
 
 
-function abrir(id){
+function abrir(id,lojaname){
      localStorage.setItem('idLoja',id);
+     localStorage.setItem('nomeLoja',lojaname);
      location.assign('../pedidos/index.html');
 
      //alert('essa função está em desenvolvimento');

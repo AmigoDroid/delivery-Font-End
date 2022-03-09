@@ -18,6 +18,7 @@
         //  const url_token = 'https://api-server-delivery.herokuapp.com/validar/';
          const token = localStorage.getItem('token');
          const idLoja = localStorage.getItem('idLoja');
+         const nmLoja = localStorage.getItem('nomeLoja');
         //escolhendo servidor
         const socket = io(api);
         socket.on('connection',(sk)=>{
@@ -44,9 +45,10 @@
                     preco:'50',
                     quantidade:'3',
                     token:token,
-                    idLoja:idLoja
+                    idLoja:idLoja,
+                    nomeLoja:nmLoja
                 }
-                socket.emit('pedidos',dadosPedido);
+                socket.emit('Pedir',dadosPedido);
                 //ouvindo via token
                 socket.on(token,(res)=>{
 
