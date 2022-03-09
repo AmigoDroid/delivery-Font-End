@@ -9,21 +9,22 @@ window.onload = ()=>{
 
 
 function RenderCard(dados){
-    const test = dados;
+    let {nome,descrision,id} = dados;
      document.getElementById('tela').innerHTML+=`
      <div class="card">
-         <h3>${dados.nome}</h3>
+      
      <img src="../../src/img/user-avatar.png" alt="imagem">
+     <h3>${nome}</h3>
          <p>${dados.descrision} <br><br>
          Telefone: ${dados.telefone}</p>   
-         <button onclick='abrir(${test})'>Fazer Pedido!</button>
+         <button onclick='abrir()'>Fazer Pedido!</button>
     </div> `;
 } 
 
 
-function abrir(obj){
-     localStorage.setItem('idLoja',obj.id);
-     localStorage.setItem('nomeLoja',obj.nome);
+function abrir(lojaname){
+    
+     localStorage.setItem('nomeLoja','Neide Lanches');
      location.assign('../pedidos/index.html');
 
      //alert('essa função está em desenvolvimento');
@@ -38,6 +39,7 @@ function altenticar(){
         const bodydb = dados.body;
         for(let i =0;i<bodydb.length;i++){
             RenderCard(bodydb[i]);
+            console.log(bodydb[i]);
         }
     }else{
         alert('você precisa fazer login');
