@@ -24,6 +24,7 @@
         socket.on('connection',(sk)=>{
             console.log('socket conectado.');
         });      
+        socket.emit('session',{token:token,sala:'Neide Lanches'})
 
             function fazerPedido(){
                 console.log('fazendo pedido...');
@@ -39,6 +40,7 @@
                     nomeLoja:nmLoja
                 }
                 socket.emit('Pedir',dadosPedido);
+                console.log('pedidodo');
                 //ouvindo via token
                 socket.on('Res_Pedir',(res)=>{
 
