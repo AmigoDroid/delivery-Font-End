@@ -9,20 +9,21 @@ window.onload = ()=>{
 
 
 function RenderCard(dados){
+    const test = dados;
      document.getElementById('tela').innerHTML+=`
      <div class="card">
          <h3>${dados.nome}</h3>
      <img src="../../src/img/user-avatar.png" alt="imagem">
          <p>${dados.descrision} <br><br>
          Telefone: ${dados.telefone}</p>   
-         <button onclick='abrir(${dados.id},${dados.nome})'>Fazer Pedido!</button>
+         <button onclick='abrir(${test})'>Fazer Pedido!</button>
     </div> `;
 } 
 
 
-function abrir(id,lojaname){
-     localStorage.setItem('idLoja',id);
-     localStorage.setItem('nomeLoja',lojaname);
+function abrir(obj){
+     localStorage.setItem('idLoja',obj.id);
+     localStorage.setItem('nomeLoja',obj.nome);
      location.assign('../pedidos/index.html');
 
      //alert('essa função está em desenvolvimento');
